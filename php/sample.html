@@ -1,0 +1,37 @@
+<html ng-app="myapp">
+    <body>
+
+    
+<div ng-controller="myController">
+   
+</div>
+
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+<script>
+    var module       = angular.module("myapp", []);
+    
+  
+    module.factory("sampleService",function(){
+        var factory = {};
+        factory.popMe = function(){
+            alert("Inside sampleService");
+            return "swap";
+        };
+        return factory;
+    });
+
+
+
+    var myController1 = module.controller("myController", function($scope,sampleService) {
+       
+
+        $scope.callMe = function(){
+            alert("Inside myController");
+            var i = sampleService.popMe();
+            alert(i);
+        };
+         $scope.callMe();
+    });
+</script>
